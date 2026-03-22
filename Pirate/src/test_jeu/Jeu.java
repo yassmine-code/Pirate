@@ -34,13 +34,13 @@ public class Jeu {
 
 	protected void jouer() {
 
-		while (testVictoire()) {
+		while (continuerPartie()) {
 
 			journal.afficheTour(joueur1.getNom());
 			journal.afficheJoueurSuiv();
 			joueur1.deplacer(joueur2);
 
-			if (testVictoire()) {
+			if (continuerPartie()) {
 
 				journal.afficheTour(joueur2.getNom());
 
@@ -50,7 +50,7 @@ public class Jeu {
 		}
 	}
 
-	protected boolean testVictoire() {
+	protected boolean continuerPartie() {
 		return !joueur1.getVictoire() && !joueur2.getVictoire() && !joueur1.testestMort() && !joueur2.testestMort();
 	}
 
